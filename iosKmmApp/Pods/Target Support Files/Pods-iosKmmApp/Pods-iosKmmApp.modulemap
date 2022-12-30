@@ -1,0 +1,6 @@
+framework module Pods_iosKmmApp {
+  umbrella header "Pods-iosKmmApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
