@@ -1,5 +1,5 @@
 PODS:
-  - sharedKmm (1.0)
+  - sharedKmm (2.0)
 
 DEPENDENCIES:
   - sharedKmm (from `../sharedKmm`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../sharedKmm"
 
 SPEC CHECKSUMS:
-  sharedKmm: 69a092a69fbed9075b67d47de8f4482a5f38d7ec
+  sharedKmm: 5dee898f8375a0c3e768593a8fbb83703285a236
 
 PODFILE CHECKSUM: 17f9c8a0f1a5635f29a70d3b227c4161f58c7380
 
