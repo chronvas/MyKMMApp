@@ -9,9 +9,9 @@
 /* Begin PBXAggregateTarget section */
 		56E49DA2375F30AC128BC5C916FE8DDB /* sharedKmm */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = CBA492245EBA102C2C542DE6C3DA05CF /* Build configuration list for PBXAggregateTarget "sharedKmm" */;
+			buildConfigurationList = 3ACE684DF2BEB5030A36FCC8EB4962AD /* Build configuration list for PBXAggregateTarget "sharedKmm" */;
 			buildPhases = (
-				4E1CAD791E3BB948E46190AF40C81696 /* [CP-User] Build sharedKmm */,
+				2B3C3E8E2D056CA04DE830BEC904964E /* [CP-User] Build sharedKmm */,
 			);
 			dependencies = (
 			);
@@ -241,7 +241,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4E1CAD791E3BB948E46190AF40C81696 /* [CP-User] Build sharedKmm */ = {
+		2B3C3E8E2D056CA04DE830BEC904964E /* [CP-User] Build sharedKmm */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -249,7 +249,7 @@
 			name = "[CP-User] Build sharedKmm";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "                if [ \"YES\" = \"$COCOAPODS_SKIP_KOTLIN_BUILD\" ]; then\n                  echo \"Skipping Gradle build task invocation due to COCOAPODS_SKIP_KOTLIN_BUILD environment variable set to \"YES\"\"\n                  exit 0\n                fi\n                set -ev\n                REPO_ROOT=\"$PODS_TARGET_SRCROOT\"\n                \"$REPO_ROOT/../gradlew\" -p \"$REPO_ROOT\" $KOTLIN_PROJECT_PATH:syncFramework                     -Pkotlin.native.cocoapods.platform=$PLATFORM_NAME                     -Pkotlin.native.cocoapods.archs=\"$ARCHS\"                     -Pkotlin.native.cocoapods.configuration=\"$CONFIGURATION\"\n";
+			shellScript = "                if [ \"YES\" = \"$OVERRIDE_KOTLIN_BUILD_IDE_SUPPORTED\" ]; then\n                  echo \"Skipping Gradle build task invocation due to OVERRIDE_KOTLIN_BUILD_IDE_SUPPORTED environment variable set to \"YES\"\"\n                  exit 0\n                fi\n                set -ev\n                REPO_ROOT=\"$PODS_TARGET_SRCROOT\"\n                \"$REPO_ROOT/../gradlew\" -p \"$REPO_ROOT\" $KOTLIN_PROJECT_PATH:syncFramework                     -Pkotlin.native.cocoapods.platform=$PLATFORM_NAME                     -Pkotlin.native.cocoapods.archs=\"$ARCHS\"                     -Pkotlin.native.cocoapods.configuration=\"$CONFIGURATION\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -311,24 +311,6 @@
 			};
 			name = Debug;
 		};
-		08744163B882CDBC7DFAE5939372ABB6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7A84C7AC6B2E3FA7AC23D22487E11D8 /* sharedKmm.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		181F96FBCF15B39E7EF7E00A993A3A7C /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 62B31668FEC441AAA14F3E7B140DA977 /* Pods-iosKmmApp.release.xcconfig */;
@@ -367,9 +349,9 @@
 			};
 			name = Release;
 		};
-		24A60F19CC6A162C4711A9811DAAF61C /* Debug */ = {
+		445BEF1889764D55B338A32FB6FDEF22 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80EC3B3FCA713CE9D1A81615177F68AE /* sharedKmm.debug.xcconfig */;
+			baseConfigurationReference = D7A84C7AC6B2E3FA7AC23D22487E11D8 /* sharedKmm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -381,8 +363,9 @@
 				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
 		593F10BFFA94DAC7D6E17FB8A7F32D72 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -445,6 +428,23 @@
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
+		};
+		674EE2D1818F88DBB6DF1564DCB3AC1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80EC3B3FCA713CE9D1A81615177F68AE /* sharedKmm.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
 		};
 		A0374B8CF9A7D6A45F6D116D698D1C19 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -515,6 +515,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3ACE684DF2BEB5030A36FCC8EB4962AD /* Build configuration list for PBXAggregateTarget "sharedKmm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				674EE2D1818F88DBB6DF1564DCB3AC1C /* Debug */,
+				445BEF1889764D55B338A32FB6FDEF22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -529,15 +538,6 @@
 			buildConfigurations = (
 				037C43B4D137EC7466C13D5CD789DE31 /* Debug */,
 				181F96FBCF15B39E7EF7E00A993A3A7C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CBA492245EBA102C2C542DE6C3DA05CF /* Build configuration list for PBXAggregateTarget "sharedKmm" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				24A60F19CC6A162C4711A9811DAAF61C /* Debug */,
-				08744163B882CDBC7DFAE5939372ABB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
